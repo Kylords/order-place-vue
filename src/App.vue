@@ -32,6 +32,16 @@ export default {
   },
   mounted() {
     this.fetchCurrentUser()
+    const storedUser = localStorage.getItem('user');
+    const token = localStorage.getItem('token');
+
+    if (storedUser && token) {
+      const parsedUser = JSON.parse(storedUser)
+      user.value = parsedUser
+      notifCount.value = parsedUser.unreadNotificationsCount || 0
+    } else {
+      this.$router.push({ name: 'Login' });
+    }
   },
   methods: {
     async fetchCurrentUser() {
