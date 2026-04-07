@@ -19,7 +19,7 @@
       <button @click="submitProducts">Submit All</button>
     </div>
 
-    <div class="filter">
+    <div v-if="user?.role === 'admin'" class="filter">
       <label for="status">Filter by status:</label>
       <select v-model="statusFilter" @change="applyFilter">
         <option value="all">All</option>
@@ -36,7 +36,7 @@
 
     <div class="products">
       <div v-for="product in products" :key="product.id" class="product-card">
-        <div v-if="user?.role === 'admin' && product.status === 'C'">
+        <div v-if="user?.role === 'admin' && product.status === 'C' && product.id !== editingProductId">
           <input
             type="checkbox"
             :value="product.code"
@@ -98,6 +98,7 @@ export default {
     }
   },
   mounted() {
+    this.statusFilter = this.user?.role === 'admin' ? 'all' : 'active'
     this.fetchProducts()
   },
   methods: {
