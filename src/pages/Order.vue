@@ -13,8 +13,8 @@
       
         <h3>Items:</h3>
         <ul>
-          <li v-for="item in order.order_items" :key="item.id">
-            {{ item.quantity }} × {{ item.product.name }} (₱{{ item.price }})
+          <li v-for="item in order.items" :key="item.id">
+            {{ item.quantity }} × {{ item.product.name }} (₱{{ item.price }}) = (₱{{ item.subtotal }})
           </li>
         </ul>
 
@@ -87,7 +87,8 @@ export default {
           return
         }
 
-        this.orders = data.orders || []
+        this.orders = data.data || []
+        console.log('data', this.orders)
         this.page = data.meta?.page || page
         this.totalPages = data.meta?.total_pages || 1
       } catch (err) {
