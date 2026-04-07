@@ -1,5 +1,20 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Frontend Setup
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+**Node version:** v18.20 (recommended)  
+**NPM version:** latest compatible with Node 18  
+
+1. Make sure you have **Node.js** installed (v16+ recommended).  
+2. Clone the frontend repo:
+
+
+git clone https://github.com/Kylords/order-place-vue.git
+cd order-place-vue
+
+3. **Install dependencies**
+
+npm install
+
+4. **Run the development server**
+
+npm run dev
